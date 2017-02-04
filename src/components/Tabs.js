@@ -1,49 +1,26 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 
 export class Tabs extends Component {
-  constructor(props) {
-    super(props);  
-    
-    this.state = { 
-      selected: this.props.selected 
-    };
-  }
-  
-  _renderTitles() {
-    function labels(child, idx) {
-      let activeClass = (this.state.selected === idx ? 'is-active' : '');
-      return (
-        <li role="tab" key={idx} aria-controls={`panel${idx}`}>
-          <a className={activeClass}  onClick={this.onClick.bind(this, idx)} href="#">
-            {child.props.label}
-          </a>
-        </li>
-      );
-    }
-  
-   return (
-      <ul className="tabs__labels" role="tablist">
-        {this.props.children.map(labels.bind(this))}
+
+  render() {
+    console.log(this.props);
+
+    return (
+      <ul className="tab">
+
+        {this.props.tabList.map( (tab) => {
+
+          let tabClass= "tablist";
+          if (this.props.activeTab === tab.id) tabClass += " active";
+
+          return (
+            <li key={tab.id}>
+              <a href="#" className={tabClass} 
+                    onClick={this.props.clickHandler}>{tab.name}</a>
+            </li>
+          );
+        })}
       </ul>
     );
-  }
-  
-  
-  onClick(index, event) {
-    event.preventDefault();
-    this.setState({
-      selected: index
-    });
-  }
-  
-  render() {
-    return (
-      <div className="tabs">
-        {this._renderTitles()}
-        
-        <div className="tabs__content">
-          {this.props.children[this.state.selected]}
-        </div>
-      </div>);
   }
 }

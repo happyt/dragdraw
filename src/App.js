@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Tabs } from './components/Tabs'
-import { Tab } from './components/Tab'
 import { Panel } from './components/Panel'
 import List from './List'
 import logo from './logo.svg';
@@ -10,10 +9,28 @@ var tabList = [
     { 'id': 1, 'name': 'Play', 'url': '/play' },
     { 'id': 2, 'name': 'Custom', 'url': '/vustom' },
     { 'id': 3, 'name': 'Room', 'url': '/room' },
-    { 'id': 4, 'name': 'DB', 'url': '/db' }
+    { 'id': 4, 'name': 'Stats', 'url': '/stats' },
+    { 'id': 5, 'name': 'DB', 'url': '/db' }
 ];
 
+var activeTab = 1;
+
+
+
 class App extends Component {
+  
+  handleKeyPress = (e) => {
+    e.preventDefault()
+    
+    if (e.nativeEvent.keyCode === 13) {
+      console.log('This is enter!')
+    }
+  }
+  
+  handleClick = (e) => {
+    console.log(e)
+  }
+
   render() {
     return (
       <div className="App">
@@ -22,11 +39,8 @@ class App extends Component {
           <h2>Welcome to here
           </h2>
         </div>
-        <Tabs selected={0}>
-          {tabList.map(tab =>
-            <Tab label={tab.name}>{tab.content}</Tab>)
-          }
-        </Tabs>
+        <Tabs tabList={tabList} activeTab={activeTab} 
+                    clickHandler={ (e) => this.handleClick(e)} />
         <p className="App-intro">
           status line///?
         </p>
@@ -34,10 +48,10 @@ class App extends Component {
             <Panel >ABCD</Panel>
         </div>
         <div>
-            <Panel >ABCD</Panel>
+            <Panel className="tabcontent">DEFG</Panel>
         </div>
         <div>
-            <Panel >ABCD</Panel>
+            <Panel >PORT</Panel>
         </div>
         <div>
             <List />
