@@ -18,7 +18,7 @@ var activeTab = 1;
 
 
 class App extends Component {
-  
+    
   handleKeyPress = (e) => {
     e.preventDefault()
     
@@ -27,8 +27,9 @@ class App extends Component {
     }
   }
   
-  handleClick = (e) => {
-    console.log(e)
+  handleClick = (tab) => {
+//    console.log("t", tab)
+    activeTab = tab;
   }
 
   render() {
@@ -47,8 +48,8 @@ class App extends Component {
         <div>
             <Panel >ABCD</Panel>
         </div>
-        <div>
-            <Panel className="tabcontent">DEFG</Panel>
+        <div  className={activeTab===2 ? "tabcontent" : ""}>
+            <Panel>DEFG</Panel>
         </div>
         <div>
             <Panel >PORT</Panel>
