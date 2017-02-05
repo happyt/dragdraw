@@ -4,12 +4,13 @@ Challenge and compare type game
 
 ### next ###
 
-- tabs for game, person, talents, connection
-- connect to Firebase db
-- find correct room
+- set player
 - find scores
 - update positions
 
+- set colour
+- set scores, health, speed ...?
+- set player in room
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
