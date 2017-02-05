@@ -18,6 +18,10 @@
   font-size: large;
 }
 
+.version {
+  font-size: x-small;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
@@ -62,7 +66,9 @@ ul.tab li a:focus, .active {background-color: #c00;}
 .tabcontent {
     display: block;
     padding: 6px 12px;
-    background-color: springgreen;
-    border: 1px solid #c00;
     border-top: none;
+}
+
+.tabhidden {
+    display: none;
 }

@@ -12,25 +12,25 @@ class List extends Component {
     this.state = {
       items: [{
         id: 1,
-        text: 'Write a cool JS library'
+        text: 'Strength'
       }, {
         id: 2,
-        text: 'Make it generic enough'
+        text: 'Cunning'
       }, {
         id: 3,
-        text: 'Write README'
+        text: 'Agility'
       }, {
         id: 4,
-        text: 'Create some examples'
+        text: 'Speed'
       }, {
         id: 5,
-        text: 'Resize if too big'
+        text: 'Weight'
       }, {
         id: 6,
-        text: '???'
+        text: 'Wisdom'
       }, {
         id: 7,
-        text: 'PROFIT'
+        text: 'Senses'
       }]
     };
   }
@@ -54,7 +54,8 @@ class List extends Component {
  
     return (
       <div>
-        <h1>Drag and Drop</h1>
+        <h3>Strategy list</h3>
+        <p>Drag items into the desired order</p>
         {items.map((item, index) => (
           <DndCard
             key={item.id}

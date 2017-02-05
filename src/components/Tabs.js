@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 
 export class Tabs extends Component {
 
- 
   render() {
     console.log(this.props);
 

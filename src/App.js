@@ -5,20 +5,23 @@ import List from './List'
 import logo from './logo.svg';
 import './App.css';
 
+
 var tabList = [
-    { 'id': 1, 'name': 'Play', 'url': '/play' },
-    { 'id': 2, 'name': 'Custom', 'url': '/vustom' },
-    { 'id': 3, 'name': 'Room', 'url': '/room' },
-    { 'id': 4, 'name': 'Stats', 'url': '/stats' },
-    { 'id': 5, 'name': 'DB', 'url': '/db' }
+    { 'id': 1, 'name': 'Play'},
+    { 'id': 2, 'name': 'Custom'},
+    { 'id': 3, 'name': 'Room'},
+    { 'id': 4, 'name': 'Stats' },
+    { 'id': 5, 'name': 'DB2' }
 ];
 
-var activeTab = 1;
-
-
-
 class App extends Component {
-    
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+         activeTab : 1
+    }  
+  }
   handleKeyPress = (e) => {
     e.preventDefault()
     
@@ -29,7 +32,9 @@ class App extends Component {
   
   handleClick = (tab) => {
 //    console.log("t", tab)
-    activeTab = tab;
+    this.setState ({
+      activeTab : tab
+    })
   }
 
   render() {
@@ -37,25 +42,25 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to here
-          </h2>
+          <h2>Strategy app<span className="version">  v {this.state.activeTab}</span></h2>
         </div>
-        <Tabs tabList={tabList} activeTab={activeTab} 
+        <Tabs tabList={tabList} activeTab={this.state.activeTab} 
                     clickHandler={ (e) => this.handleClick(e)} />
-        <p className="App-intro">
-          status line///?
-        </p>
-        <div>
-            <Panel >ABCD</Panel>
+
+        <div className={this.state.activeTab===1 ? "tabcontent" : "tabhidden"}>
+            <Panel >Game point</Panel>
         </div>
-        <div  className={activeTab===2 ? "tabcontent" : ""}>
-            <Panel>DEFG</Panel>
+        <div  className={this.state.activeTab===2 ? "tabcontent" : "tabhidden"}>
+             <List />
         </div>
-        <div>
-            <Panel >PORT</Panel>
+        <div className={this.state.activeTab===3 ? "tabcontent" : "tabhidden"}>
+            <Panel >Details</Panel>
         </div>
-        <div>
-            <List />
+         <div className={this.state.activeTab===4 ? "tabcontent" : "tabhidden"}>
+            <Panel >Statistics</Panel>
+        </div>
+        <div className={this.state.activeTab===5 ? "tabcontent" : "tabhidden"}>
+           <Panel >Connections</Panel>
         </div>
         
       </div>
