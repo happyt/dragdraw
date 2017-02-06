@@ -72,3 +72,11 @@ ul.tab li a:focus, .active {background-color: #c00;}
 .tabhidden {
     display: none;
 }
+
+
+.error {
+  color:orangered;
+}
+.success {
+  color:limegreen;
+}

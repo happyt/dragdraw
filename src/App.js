@@ -24,7 +24,8 @@ class App extends Component {
     this.state = {
       activeTab: 1,
       addition: "",
-      players: playerList
+      players: playerList,
+      currentPlayer: "XX"
     }
   }
 
@@ -75,11 +76,12 @@ class App extends Component {
     this.setState({
       errorMessage: "Supply a name"
     })
+    setTimeout(() => this.setState({ errorMessage: "" }), 2500)
   }
 
   checkPlayerInList = (name) => {
     for (var i = 0; i < this.state.players.length; i++)
-      if (this.state.players[i]["name"] == name)
+      if (this.state.players[i]["name"] === name)
         return true;
     return false;
   }
@@ -97,6 +99,9 @@ class App extends Component {
       // set this player
       this.showTempMessage(`setting player: ${this.state.addition}`);
     }
+    this.setState({
+      currentPlayer: this.state.addition
+    });
   }
   // const newId = generateId();
   // const newTeam = {
@@ -109,58 +114,59 @@ class App extends Component {
   //   .then(() => this.showTempMessage( "team added"))
 
 
-handleInputChange = (evt) => {
-  this.setState({
-    addition: evt.target.value
-  })
-}
+  handleInputChange = (evt) => {
+    this.setState({
+      addition: evt.target.value
+    })
+  }
 
-render() {
-  const submitHandler = this.state.addition ? this.handlePlayerSubmit : this.handleEmptySubmit;
-  return (
-    <div className="App">
-      <div className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h2>Strategy app<span className="version">  v {this.state.activeTab}</span></h2>
-      </div>
-      <Tabs tabList={tabList} activeTab={this.state.activeTab}
-        clickHandler={(e) => this.handleClick(e)} />
+  render() {
+    const submitHandler = this.state.addition ? this.handlePlayerSubmit : this.handleEmptySubmit;
+    return (
+      <div className="App">
+        <div className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <h2>Strategy app<span className="version">  v {this.state.activeTab}</span></h2>
+        </div>
+        <Tabs tabList={tabList} activeTab={this.state.activeTab}
+          clickHandler={(e) => this.handleClick(e)} />
 
-      <div className={this.state.activeTab === 1 ? "tabcontent" : "tabhidden"}>
-        <Panel >Game point</Panel>
-      </div>
-      <div className={this.state.activeTab === 2 ? "tabcontent" : "tabhidden"}>
-        <List />
-      </div>
-      <div className={this.state.activeTab === 3 ? "tabcontent" : "tabhidden"}>
-        <Panel >Location details</Panel>
-      </div>
-      <div className={this.state.activeTab === 4 ? "tabcontent" : "tabhidden"}>
-        <Panel >Statistics</Panel>
-      </div>
-      <div className={this.state.activeTab === 5 ? "tabcontent" : "tabhidden"}>
-        <Panel >
-          <div>Connections</div>
-          <ul>
-            {this.state.players.map(mm =>
-              <div key={mm.id}> {mm.name} </div>
-            )}
-          </ul>
-          <FormName handleInputChange={this.handleInputChange}
-            addition={this.state.addition}
-            handleSubmit={submitHandler} />
-          <button onClick={submitHandler}>
-            Set player
+        <div className={this.state.activeTab === 1 ? "tabcontent" : "tabhidden"}>
+          <Panel >Game point</Panel>
+        </div>
+        <div className={this.state.activeTab === 2 ? "tabcontent" : "tabhidden"}>
+          <List />
+        </div>
+        <div className={this.state.activeTab === 3 ? "tabcontent" : "tabhidden"}>
+          <Panel >Location details</Panel>
+        </div>
+        <div className={this.state.activeTab === 4 ? "tabcontent" : "tabhidden"}>
+          <Panel >Statistics</Panel>
+        </div>
+        <div className={this.state.activeTab === 5 ? "tabcontent" : "tabhidden"}>
+          <Panel >
+            <div>Connections</div>
+            <div>{this.state.currentPlayer}</div>
+            <ul>
+              {this.state.players.map(mm =>
+                <div key={mm.id}> {mm.name} </div>
+              )}
+            </ul>
+            <FormName handleInputChange={this.handleInputChange}
+              addition={this.state.addition}
+              handleSubmit={submitHandler} />
+            <button onClick={submitHandler}>
+              Set player
             </button>
-          <div className="success">S-{this.state.message}</div>
-          <div className="error">E-{this.state.errorMessage}</div>
+            <div className="success">{this.state.message}</div>
+            <div className="error">{this.state.errorMessage}</div>
 
-        </Panel>
+          </Panel>
+        </div>
+
       </div>
-
-    </div>
-  );
-}
+    );
+  }
 }
 
 export default App;

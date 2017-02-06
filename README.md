@@ -4,7 +4,7 @@ Challenge and compare type game
 
 ### next ###
 
-- set player
+- set current player
 - find scores
 - update positions
 
