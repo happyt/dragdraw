@@ -4,19 +4,21 @@ import { Panel } from './components/Panel'
 import { FormName } from './components/FormName'
 import List from './List'
 import { generateId } from './lib/helpers';
+
+import Container from './components/Container';
+import { HuePicker } from 'react-color';
 import logo from './logo.svg';
 import './App.css';
-
 
 var tabList = [
   { 'id': 1, 'name': 'Play' },
   { 'id': 2, 'name': 'Custom' },
   { 'id': 3, 'name': 'Room' },
   { 'id': 4, 'name': 'Stats' },
-  { 'id': 5, 'name': 'DB2' }
+  { 'id': 5, 'name': 'Who' }
 ];
 
-class App extends Component {
+export default class App extends Component {
   constructor(props) {
     super(props)
     //    console.log(JSON.stringify(this.props));
@@ -25,7 +27,8 @@ class App extends Component {
       activeTab: 1,
       addition: "",
       players: playerList,
-      currentPlayer: "XX"
+      currentPlayer: "XX",
+      colour: {r: 255, g: 200, b: 100, a: 255}
     }
   }
 
@@ -92,7 +95,12 @@ class App extends Component {
       this.props.addPlayer({
         id: generateId(),
         name: this.state.addition,
-        state: 'buttonState'
+        colour: this.state.colour,
+        status: 'playing',
+        posX: 0, 
+        posY: 0,
+        toggleA: false,
+        ammo: 10
       })
       this.showTempMessage("adding player");
     } else {
@@ -103,16 +111,11 @@ class App extends Component {
       currentPlayer: this.state.addition
     });
   }
-  // const newId = generateId();
-  // const newTeam = {
-  //   name: this.state.addition, 
-  //   star:false,
-  //   id: newId
-  // }
 
-  // createTeam(newTeam)
-  //   .then(() => this.showTempMessage( "team added"))
-
+  handleColourChangeComplete = (color) => {
+    this.setState({ colour: color.rgb });
+    document.getElementById('box').style.backgroundColor=color.hex;
+  };
 
   handleInputChange = (evt) => {
     this.setState({
@@ -133,6 +136,10 @@ class App extends Component {
 
         <div className={this.state.activeTab === 1 ? "tabcontent" : "tabhidden"}>
           <Panel >Game point</Panel>
+          <div>
+            Current player: {this.state.currentPlayer}
+          </div>
+         <Container hideSourceOnDrag={true} />
         </div>
         <div className={this.state.activeTab === 2 ? "tabcontent" : "tabhidden"}>
           <List />
@@ -160,7 +167,11 @@ class App extends Component {
             </button>
             <div className="success">{this.state.message}</div>
             <div className="error">{this.state.errorMessage}</div>
-
+            <div className="central">
+              <HuePicker color={this.state.colour} 
+                        onChangeComplete={ this.handleColourChangeComplete } />
+              <div id="box"></div>
+            </div>
           </Panel>
         </div>
 
@@ -169,4 +180,3 @@ class App extends Component {
   }
 }
 
-export default App;

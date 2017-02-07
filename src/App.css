@@ -80,3 +80,18 @@ ul.tab li a:focus, .active {background-color: #c00;}
 .success {
   color:limegreen;
 }
+
+.central {
+  margin-top: 10px;
+   display: flex;           /* establish flex container */
+    flex-direction: column;  /* make main axis vertical */
+    justify-content: center; /* center items vertically, in this case */
+    align-items: center;     /* center items horizontally, in this case */
+}
+
+#box {
+  margin-top: 10px;
+  width : 100px;
+  height: 20px;
+  border: 2px solid black;
+}

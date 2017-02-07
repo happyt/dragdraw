@@ -1,0 +1,66 @@
+import React, { Component, PropTypes } from 'react';
+import { DragSource } from 'react-dnd';
+import ItemTypes from './ItemTypes';
+
+const style = {
+  position: 'absolute',
+  border: '1px dashed gray',
+  backgroundColor: 'white',
+  padding: '0.5rem 1rem',
+  cursor: 'move',
+};
+
+const boxSource = {
+  beginDrag(props) {
+    const { id, left, top } = props;
+    return { id, left, top };
+  },
+};
+
+// Was like this in ES7
+// @DragSource(ItemTypes.BOX, boxSource, (connect, monitor) => ({
+//   connectDragSource: connect.dragSource(),
+//   isDragging: monitor.isDragging(),
+// }))
+// export default class Box extends Component {
+
+
+/**
+ * Specifies which props to inject into your component.
+ */
+function collect(connect, monitor) {
+  return {
+    // Call this function inside render()
+    // to let React DnD handle the drag events:
+    connectDragSource: connect.dragSource(),
+    // You can ask the monitor about the current drag state:
+    isDragging: monitor.isDragging()
+  };
+}
+class Box extends Component {
+  static propTypes = {
+    connectDragSource: PropTypes.func.isRequired,
+    isDragging: PropTypes.bool.isRequired,
+    id: PropTypes.any.isRequired,
+    left: PropTypes.number.isRequired,
+    top: PropTypes.number.isRequired,
+    hideSourceOnDrag: PropTypes.bool.isRequired,
+    children: PropTypes.node,
+  };
+
+  render() {
+    const { hideSourceOnDrag, left, top, connectDragSource, isDragging, children } = this.props;
+    if (isDragging && hideSourceOnDrag) {
+      return null;
+    }
+
+    return connectDragSource(
+      <div style={{ ...style, left, top }}>
+        {children}
+      </div>,
+    );
+  }
+}
+
+// Export the wrapped version
+export default DragSource(ItemTypes.BOX, boxSource, collect)(Box);
