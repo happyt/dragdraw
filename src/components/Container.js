@@ -98,6 +98,6 @@ class Container extends Component {
 }
 
 export default flow(
-    DragDropContext(HTML5Backend),
-    DropTarget(ItemTypes.BOX, boxTarget, collect)
+    DropTarget(ItemTypes.BOX, boxTarget, collect),
+    DragDropContext(HTML5Backend)
 )(Container);
