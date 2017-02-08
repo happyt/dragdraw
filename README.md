@@ -4,7 +4,7 @@ Challenge and compare type game
 
 ### next ###
 
-- joystick movement input
+- movement input
 - update positions
 
 - position map screen
@@ -43,3 +43,13 @@ https://github.com/lelandrichardson/react-native-pan-controller
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
+references
+Fraction - https://github.com/infusion/Fraction.js
+http://www.xarg.org/2014/03/rational-numbers-in-javascript/  
+
+tried react-dnd, so still in there, but it interfered with other drag components
+https://react-dnd.github.io/react-dnd/docs-overview.html
+
+used trigonometry helper,
+http://codepen.io/anthonydugois/pen/JYoqqm
+looked at https://react.rocks/example/TR-808 - interesting but unused
