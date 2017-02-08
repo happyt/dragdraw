@@ -5,7 +5,7 @@ import HTML5Backend from 'react-dnd-html5-backend';
 import DndCard from 'react-dnd-card';
 import { createItem } from './Item';
  
-class List extends Component {
+class StrategyList extends Component {
   constructor(props) {
     super(props);
     this.moveCard = this.moveCard.bind(this);
@@ -71,4 +71,4 @@ class List extends Component {
   }
 }
  
-export default DragDropContext(HTML5Backend)(List);
+export default DragDropContext(HTML5Backend)(StrategyList);

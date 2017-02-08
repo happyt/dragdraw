@@ -119,19 +119,6 @@ class Sketch extends Component {
                         y2={ sketchHalfSize } />
                     
                     <text
-                        className="ad-Sketch-hint"
-                        x={ sketchHalfSize + 10 }
-                        y={ 10 }>
-                        sin
-                    </text>
-                    <text
-                        className="ad-Sketch-hint  ad-Sketch-hint--r"
-                        x={ props.sketchSize - 5 }
-                        y={ sketchHalfSize - 10 }>
-                        cos
-                    </text>
-                    
-                    <text
                         className="ad-Sketch-value"
                         x={ sketchHalfSize + props.circleRadius + 15 }
                         y={ sketchHalfSize - 10 }>
@@ -171,179 +158,179 @@ class Sketch extends Component {
     }
 }
 
-class Icon extends Component {
-    render() {
-        let path
+// class Icon extends Component {
+//     render() {
+//         let path
 
-        switch (this.props.name) {
-            case "clear":
-                path = "M810 274l-238 238 238 238-60 60-238-238-238 238-60-60 238-238-238-238 60-60 238 238 238-238z"
-                break;
+//         switch (this.props.name) {
+//             case "clear":
+//                 path = "M810 274l-238 238 238 238-60 60-238-238-238 238-60-60 238-238-238-238 60-60 238 238 238-238z"
+//                 break;
             
-            case "add":
-                path = "M810 554h-256v256h-84v-256h-256v-84h256v-256h84v256h256v84z"
-                break;
-            default:
-                ;
-        }
+//             case "add":
+//                 path = "M810 554h-256v256h-84v-256h-256v-84h256v-256h84v256h256v84z"
+//                 break;
+//             default:
+//                 ;
+//         }
         
-        return (
-            <svg
-                className="ad-Icon"
-                viewBox="0 0 1024 1024">
-                <path d={ path } />
-            </svg>
-        )
-    }
-}
+//         return (
+//             <svg
+//                 className="ad-Icon"
+//                 viewBox="0 0 1024 1024">
+//                 <path d={ path } />
+//             </svg>
+//         )
+//     }
+// }
 
-class Button extends Component {
-    render() {
-        const {
-            type,
-            size,
-            icon,
-            children,
-            ...props,
-        } = this.props
+// class Button extends Component {
+//     render() {
+//         const {
+//             type,
+//             size,
+//             icon,
+//             children,
+//             ...props,
+//         } = this.props
 
-        return (
-            <button
-                className={
-                    "ad-Button" +
-                    (type ? " ad-Button--" + type : "") +
-                    (size ? " ad-Button--" + size : "")
-                }
-                { ...props }
-                type="button">
-                { icon && (<Icon name={ icon } />) }
-                {
-                    children && (
-                        <span className="ad-Button-text">
-                            { children }
-                        </span>
-                    )
-                }
-            </button>
-        )
-    }
-}
+//         return (
+//             <button
+//                 className={
+//                     "ad-Button" +
+//                     (type ? " ad-Button--" + type : "") +
+//                     (size ? " ad-Button--" + size : "")
+//                 }
+//                 { ...props }
+//                 type="button">
+//                 { icon && (<Icon name={ icon } />) }
+//                 {
+//                     children && (
+//                         <span className="ad-Button-text">
+//                             { children }
+//                         </span>
+//                     )
+//                 }
+//             </button>
+//         )
+//     }
+// }
 
-class FormGroup extends Component {    
-    handleNumerator = (e) => {
-        this.props.updateNumerator(this.props.index, e.target.value)
-    };
+// class FormGroup extends Component {    
+//     handleNumerator = (e) => {
+//         this.props.updateNumerator(this.props.index, e.target.value)
+//     };
     
-    handleDenominator = (e) => {
-        this.props.updateDenominator(this.props.index, e.target.value)
-    };
+//     handleDenominator = (e) => {
+//         this.props.updateDenominator(this.props.index, e.target.value)
+//     };
     
-    handleClick = (e) => {
-        e.preventDefault()
+//     handleClick = (e) => {
+//         e.preventDefault()
         
-        this.props.deleteFormGroup(this.props.index)
-    };
+//         this.props.deleteFormGroup(this.props.index)
+//     };
 
-    render() {        
-        return (
-            <div className="ad-FormGroup">
-                <div className="ad-FormGroup-color"></div>
+//     render() {        
+//         return (
+//             <div className="ad-FormGroup">
+//                 <div className="ad-FormGroup-color"></div>
             
-                <div className="ad-FormMath">
-                    <div className="ad-FormMath-frac">
-                        <div className="ad-FormMath-n">
-                            <input
-                                className="ad-FormInput"
-                                ref="numerator"
-                                value={ this.props.angle.numerator }
-                                onChange={ this.handleNumerator }
-                                type="text" />
-                        </div>
+//                 <div className="ad-FormMath">
+//                     <div className="ad-FormMath-frac">
+//                         <div className="ad-FormMath-n">
+//                             <input
+//                                 className="ad-FormInput"
+//                                 ref="numerator"
+//                                 value={ this.props.angle.numerator }
+//                                 onChange={ this.handleNumerator }
+//                                 type="text" />
+//                         </div>
                         
-                        <div className="ad-FormMath-n">
-                            <input
-                                className="ad-FormInput"
-                                ref="denominator"
-                                value={ this.props.angle.denominator }
-                                onChange={ this.handleDenominator }
-                                type="text" />
-                        </div>
-                    </div>
+//                         <div className="ad-FormMath-n">
+//                             <input
+//                                 className="ad-FormInput"
+//                                 ref="denominator"
+//                                 value={ this.props.angle.denominator }
+//                                 onChange={ this.handleDenominator }
+//                                 type="text" />
+//                         </div>
+//                     </div>
                     
-                    <div className="ad-FormMath-formula">
-                        π
-                    </div>
-                </div>
+//                     <div className="ad-FormMath-formula">
+//                         π
+//                     </div>
+//                 </div>
                 
-                <div className="ad-FormGroup-action">
-                    <Button
-                        onClick={ this.handleClick }
-                        type="cancel"
-                        size="mini"
-                        icon="clear" />
-                </div>
-            </div>
-        )
-    }
-}
+//                 <div className="ad-FormGroup-action">
+//                     <Button
+//                         onClick={ this.handleClick }
+//                         type="cancel"
+//                         size="mini"
+//                         icon="clear" />
+//                 </div>
+//             </div>
+//         )
+//     }
+// }
 
-class Form extends Component {    
-    componentDidUpdate() {
-        const n = ReactDOM.findDOMNode(this.refs.groups)
+// class Form extends Component {    
+//     componentDidUpdate() {
+//         const n = ReactDOM.findDOMNode(this.refs.groups)
         
-        if (this.props.shouldScroll) {
-            n.scrollTop = n.scrollHeight
-        }
-    }
+//         if (this.props.shouldScroll) {
+//             n.scrollTop = n.scrollHeight
+//         }
+//     }
     
-    handleClick = (e) => {
-        e.preventDefault()
-        this.props.addFormGroup()
-    };
+//     handleClick = (e) => {
+//         e.preventDefault()
+//         this.props.addFormGroup()
+//     };
     
-    handleBlur = (e) => {
-        this.props.blurAddButton()
-    };
+//     handleBlur = (e) => {
+//         this.props.blurAddButton()
+//     };
 
-    render() {
-        const {
-            angles,
-            addFormGroup,
-            ...props,
-        } = this.props
+//     render() {
+//         const {
+//             angles,
+//  //           addFormGroup,
+//             ...props,
+//         } = this.props
         
-        let groups = angles.map((angle, index) => {
-            return (
-                <FormGroup
-                    key={index}
-                    index={ index }
-                    angle={ angle }
-                    { ...props } />
-            )
-        })
+//         let groups = angles.map((angle, index) => {
+//             return (
+//                 <FormGroup
+//                     key={index}
+//                     index={ index }
+//                     angle={ angle }
+//                     { ...props } />
+//             )
+//         })
         
-        return (
-            <form className="ad-Form">
-                <div
-                    className="ad-Form-groups"
-                    ref="groups">
-                    { groups }
-                </div>
+//         return (
+//             <form className="ad-Form">
+//                 <div
+//                     className="ad-Form-groups"
+//                     ref="groups">
+//                     { groups }
+//                 </div>
                 
-                <div className="ad-Form-actions">
-                    <Button
-                        onClick={ this.handleClick }
-                        onBlur={ this.handleBlur }
-                        type="primary"
-                        size="full"
-                        icon="add">
-                        Actions
-                    </Button>
-                </div>
-            </form>
-        )
-    }
-}
+//                 <div className="ad-Form-actions">
+//                     <Button
+//                         onClick={ this.handleClick }
+//                         onBlur={ this.handleBlur }
+//                         type="primary"
+//                         size="full"
+//                         icon="add">
+//                         Actions
+//                     </Button>
+//                 </div>
+//             </form>
+//         )
+//     }
+// }
 
 export default class Trigonometry extends Component {    
     state = {
@@ -488,11 +475,11 @@ export default class Trigonometry extends Component {
             <div>
                 <div className="ad-App-head">
                     <h1 className="ad-App-title">
-                        Trigonometry Helper
+                        Angular battle
                     </h1>
 
                     <div className="ad-App-hint">
-                        Type values to move an angle or drag it directly on the scheme.
+                        Drag the nodes.
                     </div>
                 </div>
 
@@ -510,11 +497,6 @@ export default class Trigonometry extends Component {
                             isDragging={ this.state.isDragging }
                             { ...this.props } />
                     </div>
-                </div>
-                <div className="ad-App-foot">
-                    <a href="https://twitter.com/a_dugois">
-                        Follow me on Twitter
-                    </a>
                 </div>
             </div>
         )

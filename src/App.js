@@ -3,12 +3,11 @@ import { Tabs } from './components/Tabs'
 import { Panel } from './components/Panel'
 import { FormName } from './components/FormName'
 import { Statistics } from './components/Statistics'
-import List from './List'
-import { generateId } from './lib/helpers';
+import { PlanView } from './components/PlanView'
+import { PlayerView } from './components/PlayerView'
+import StrategyList from './components/StrategyList'
 
 // import Container from './components/Container';
-
-import Trigonometry from './trig'
 
 import { HuePicker } from 'react-color';
 import logo from './logo.svg';
@@ -32,8 +31,8 @@ export default class App extends Component {
       activeTab: 1,
       addition: "",
       players: playerList,
-      currentPlayer: "XX",
-      colour: {r: 255, g: 200, b: 100, a: 255}
+      currentPlayer: "?",
+      colour: { r: 255, g: 200, b: 100, a: 255 }
     }
   }
 
@@ -47,14 +46,30 @@ export default class App extends Component {
   updatePlayers = (nextProps) => {
     //    console.log("players: ", nextProps.players);
     const playerList = [];
-    if (nextProps.players !== undefined) {                // is there a players entry
+    if (nextProps.players !== undefined) {                // is there a players list entry
       Object.keys(nextProps.players).forEach(key => {
-        if (nextProps.players[key].id !== undefined) {     // no correct id entry
-          playerList.push(nextProps.players[key]);
-        }
+        nextProps.players[key].id = key
+        playerList.push(nextProps.players[key]);
       })
     }
     return playerList;
+  }
+
+
+  updateCurrentPlayer = () => {
+    let message = "??"
+    let p = this.getPlayerInList(this.state.currentPlayer)
+    if (p) {
+      this.props.updatePlayer(p.id, p)
+      message = "OK"
+    } else {
+      message = "null"
+    }
+    console.log("here")
+    this.setState({
+      errorMessage: { message }
+    })
+    setTimeout(() => this.setState({ errorMessage: "" }), 2500)
   }
 
   handleKeyPress = (e) => {
@@ -94,23 +109,39 @@ export default class App extends Component {
     return false;
   }
 
+  getPlayerInList = (name) => {
+    for (var i = 0; i < this.state.players.length; i++)
+      if (this.state.players[i]["name"] === name)
+        return this.state.players[i];
+    return null;
+  }
+
   handlePlayerSubmit = (evt) => {
+    let replyMessage = "??"
     evt.preventDefault();
     if (!this.checkPlayerInList(this.state.addition)) {
       this.props.addPlayer({
-        id: generateId(),
         name: this.state.addition,
         colour: this.state.colour,
         status: 'playing',
-        posX: 0, 
+        posX: 0,
         posY: 0,
         toggleA: false,
         ammo: 10
       })
       this.showTempMessage("adding player");
     } else {
+
       // set this player
-      this.showTempMessage(`setting player: ${this.state.addition}`);
+      let p = this.getPlayerInList(this.state.currentPlayer)
+      if (p) {
+        p.colour = this.state.colour
+        this.props.updatePlayer(p.id, p)
+        replyMessage = "OK"
+      } else {
+        replyMessage = "null"
+      }
+      this.showTempMessage(`setting player: ${replyMessage}`);
     }
     this.setState({
       currentPlayer: this.state.addition
@@ -120,7 +151,7 @@ export default class App extends Component {
   handleColourChangeComplete = (color) => {
     console.log("XX")
     this.setState({ colour: color.rgb });
-    document.getElementById('box').style.backgroundColor=color.hex;
+    document.getElementById('box').style.backgroundColor = color.hex;
   };
 
   handleInputChange = (evt) => {
@@ -129,11 +160,12 @@ export default class App extends Component {
     })
   }
 
-// tried this for drag
-//  <Container hideSourceOnDrag={true} />
+  // tried this for drag
+  //  <Container hideSourceOnDrag={true} />
 
   render() {
     const submitHandler = this.state.addition ? this.handlePlayerSubmit : this.handleEmptySubmit;
+
     return (
       <div className="App">
         <div className="App-header">
@@ -143,29 +175,28 @@ export default class App extends Component {
         <Tabs tabList={tabList} activeTab={this.state.activeTab}
           clickHandler={(e) => this.handleClick(e)} />
 
-        <div className={this.state.activeTab === 1 ? "tabcontent" : "tabhidden"}>
+        <div className={this.state.activeTab === 1 ? "dash tabcontent" : "tabhidden"}>
           <Panel >Game point</Panel>
-          <div className="central">
-            Current player: {this.state.currentPlayer}
-              <Trigonometry
-                    circleRadius={ 130 }
-                    sketchSize={ 26 * 16 } />
-          
-         </div>
+          <PlayerView currentName={this.state.currentPlayer}
+            update={this.updateCurrentPlayer}
+            players={this.state.players} />
         </div>
+
+
         <div className={this.state.activeTab === 2 ? "tabcontent" : "tabhidden"}>
-          <List />
+          <StrategyList />
         </div>
         <div className={this.state.activeTab === 3 ? "tabcontent" : "tabhidden"}>
           <Panel >Location details</Panel>
-        </div>
+          <div className="central">
+            <PlanView squad={this.state.players} />
+          </div></div>
         <div className={this.state.activeTab === 4 ? "tabcontent" : "tabhidden"}>
           <Panel >Statistics</Panel>
           <div className="central">
             Current player: {this.state.currentPlayer}
             <Statistics />
-
-         </div>
+          </div>
         </div>
         <div className={this.state.activeTab === 5 ? "tabcontent" : "tabhidden"}>
           <Panel >
@@ -185,9 +216,9 @@ export default class App extends Component {
             <div className="success">{this.state.message}</div>
             <div className="error">{this.state.errorMessage}</div>
             <div className="central">
-                 <HuePicker color={this.state.colour} 
-                        onChangeComplete={ this.handleColourChangeComplete } />
-                  <div id="box"> </div> 
+              <HuePicker color={this.state.colour}
+                onChangeComplete={this.handleColourChangeComplete} />
+              <div id="box"> </div>
             </div>
           </Panel>
         </div>

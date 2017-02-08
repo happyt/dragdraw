@@ -4,13 +4,13 @@
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+  height: 70px;
 }
 
 .App-header {
   background-color: #222;
   height: 150px;
-  padding: 20px;
+  padding: 10px;
   color: white;
 }
 
@@ -94,4 +94,8 @@ ul.tab li a:focus, .active {background-color: #c00;}
   width : 100px;
   height: 20px;
   border: 2px solid black;
+}
+
+.dash {
+  background-color: #060d33;
 }

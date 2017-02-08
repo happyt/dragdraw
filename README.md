@@ -4,17 +4,27 @@ Challenge and compare type game
 
 ### next ###
 
-- movement input
-- update positions
+
+- blue screen background, white text
+
+- compare player name in CAPS
+- movement input, speed
+- player panel display - colour, position, speed, scores
 
 - position map screen
 - display colour circle (or svg) and initial
 - display players
 
-
+- save current player to local storage, and reload on startup
 - set colour by Set player
 - set scores, health, speed ...?
 - set player in room
+- use p.id not name
+
+- compare player strategies - score each time, add to stats?
+- if ever level - find final tally and edge that way
+- show edge on the bars
+
 
 
 ## player structure ideas ##
@@ -40,6 +50,8 @@ number editor, https://github.com/tleunen/react-number-editor/tree/master/src
 styles
 http://react.semantic-ui.com/introduction
 
+charts
+http://recharts.org/#/en-US
 
 native
 https://github.com/lelandrichardson/react-native-pan-controller
