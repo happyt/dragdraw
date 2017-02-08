@@ -1,11 +1,14 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { Tabs } from './components/Tabs'
 import { Panel } from './components/Panel'
 import { FormName } from './components/FormName'
 import List from './List'
 import { generateId } from './lib/helpers';
 
-import Container from './components/Container';
+// import Container from './components/Container';
+
+import Trigonometry from './trig'
+
 import { HuePicker } from 'react-color';
 import logo from './logo.svg';
 import './App.css';
@@ -113,6 +116,7 @@ export default class App extends Component {
   }
 
   handleColourChangeComplete = (color) => {
+    console.log("XX")
     this.setState({ colour: color.rgb });
     document.getElementById('box').style.backgroundColor=color.hex;
   };
@@ -122,6 +126,9 @@ export default class App extends Component {
       addition: evt.target.value
     })
   }
+
+// tried this for drag
+//  <Container hideSourceOnDrag={true} />
 
   render() {
     const submitHandler = this.state.addition ? this.handlePlayerSubmit : this.handleEmptySubmit;
@@ -136,10 +143,13 @@ export default class App extends Component {
 
         <div className={this.state.activeTab === 1 ? "tabcontent" : "tabhidden"}>
           <Panel >Game point</Panel>
-          <div>
+          <div className="central">
             Current player: {this.state.currentPlayer}
-          </div>
-         <Container hideSourceOnDrag={true} />
+              <Trigonometry
+                    circleRadius={ 130 }
+                    sketchSize={ 26 * 16 } />
+          
+         </div>
         </div>
         <div className={this.state.activeTab === 2 ? "tabcontent" : "tabhidden"}>
           <List />
@@ -168,9 +178,9 @@ export default class App extends Component {
             <div className="success">{this.state.message}</div>
             <div className="error">{this.state.errorMessage}</div>
             <div className="central">
-              <HuePicker color={this.state.colour} 
+                 <HuePicker color={this.state.colour} 
                         onChangeComplete={ this.handleColourChangeComplete } />
-              <div id="box"></div>
+                  <div id="box"> </div> 
             </div>
           </Panel>
         </div>

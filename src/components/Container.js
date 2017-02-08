@@ -11,6 +11,7 @@ const styles = {
   height: 300,
   border: '1px solid black',
   position: 'relative',
+  
 };
 
 const boxTarget = {
@@ -57,7 +58,7 @@ class Container extends Component {
     this.state = {
       boxes: {
         a: { top: 20, left: 80, title: 'Drag' },
-        b: { top: 180, left: 20, title: 'Drag me too' },
+        b: { top: 180, left: 20, title: 'Drag me' },
       },
     };
   }

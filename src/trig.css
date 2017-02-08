@@ -1,0 +1,309 @@
+@use cssnext;
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic);
+
+:root {
+    --colorPalette-1: #37474F;
+    --colorPalette-2: #263238;
+    --colorPalette-3: #00BCD4;
+}
+
+::-webkit-scrollbar {
+    width: .5rem;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--colorPalette-1);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: color(var(--colorPalette-1) l(+5%));
+}
+
+html {
+    font-size: 16px;
+}
+
+html, body {
+    height: 100%;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+.ad-Icon {
+    width: 1.5em;
+    height: 1.5em;
+    color: currentColor;
+}
+    .ad-Icon path {
+        fill: currentColor;
+    }
+
+.ad-Button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .7rem 1rem;
+    border: 2px solid var(--colorPalette-1);
+    border-radius: 4px;
+    background: none;
+    cursor: pointer;
+    transition: border .1s,
+        background .1s,
+        color .1s;
+    font-size: .7rem;
+    color: var(--colorPalette-1);
+}
+.ad-Button:focus {
+    outline: 0;
+}
+.ad-Button--full {
+    width: 100%;
+}
+.ad-Button--mini {
+    padding: .25rem;
+    font-size: .5rem;
+}
+.ad-Button--primary {
+    border-color: var(--colorPalette-3);
+    color: var(--colorPalette-3);
+}
+.ad-Button--primary:focus,
+.ad-Button--primary:hover {
+    background: var(--colorPalette-3);
+    color: #fff;
+}
+.ad-Button--cancel {
+    border-color: #fff;
+    color: #fff;
+}
+.ad-Button--cancel:focus,
+.ad-Button--cancel:hover {
+    background: #fff;
+    color: var(--colorPalette-2);
+}
+    .ad-Button-text {
+        text-transform: uppercase;
+        font-family: "Open Sans", sans-serif;
+        font-weight: bold;
+        color: currentColor;
+    }
+    .ad-Icon + .ad-Button-text {
+        margin-left: .25rem;
+    }
+
+.ad-App {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--colorPalette-3);
+}
+    .ad-App-head {
+        margin-bottom: 2rem;
+    }
+        .ad-App-title {
+            font-family: "Open Sans", sans-serif;
+            font-weight: bold;
+            font-size: 1.05rem;
+            color: #fff;
+        }
+        .ad-App-hint {
+            margin-top: .4rem;
+            font-family: "Open Sans", sans-serif;
+            font-size: .9rem;
+            color: #fff;
+        }
+
+.ad-App-foot {
+    margin-top: 1rem;
+    text-transform: uppercase;
+    text-align: right;
+    font-family: "Open Sans", sans-serif;
+    font-weight: bold;
+    font-size: .65rem;
+}
+.ad-App-foot a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.ad-Trigonometry {
+    overflow: hidden;
+    display: flex;
+    height: 30rem;
+    background: var(--colorPalette-1);
+    border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .4);
+}
+    .ad-Trigonometry-svg {
+        width: 30rem;
+        height: 100%;
+        padding: 2rem;
+    }
+    .ad-Trigonometry-form {
+        width: 14rem;
+        height: 100%;
+        background: var(--colorPalette-2);
+    }
+
+.ad-Sketch {
+    width: 100%;
+    height: 100%;
+}
+    .ad-Sketch-circle {
+        stroke: #fff;
+        stroke-width: 2px;
+        fill: none;
+    }
+    .ad-Sketch-ortho {
+        stroke: color(var(--colorPalette-1) l(+5%));
+        stroke-width: 2px;
+    }
+    .ad-Sketch-hint {
+        fill: #fff;
+        font-family: "Open Sans", sans-serif;
+        font-style: italic;
+        font-size: .75rem;
+    }
+    .ad-Sketch-value {
+        fill: #fff;
+        font-family: "Open Sans", sans-serif;
+        font-weight: bold;
+        font-size: .8rem;
+    }
+    .ad-Sketch-value--c {
+        text-anchor: middle;
+    }
+    .ad-Sketch-value--t {
+        alignment-baseline: text-after-edge;
+    }
+    .ad-Sketch-value--b {
+        alignment-baseline: text-before-edge;
+    }
+    .ad-Sketch-hint--r,
+    .ad-Sketch-value--r {
+        text-anchor: end;
+    }
+
+.ad-SketchAngle:nth-child(5n+1),
+.ad-FormGroup:nth-child(5n+1) {
+    color: #2196F3;
+}
+.ad-SketchAngle:nth-child(5n+2),
+.ad-FormGroup:nth-child(5n+2) {
+    color: #66BB6A;
+}
+.ad-SketchAngle:nth-child(5n+3),
+.ad-FormGroup:nth-child(5n+3) {
+    color: #F44336;
+}
+.ad-SketchAngle:nth-child(5n+4),
+.ad-FormGroup:nth-child(5n+4) {
+    color: #EC407A;
+}
+.ad-SketchAngle:nth-child(5n+5),
+.ad-FormGroup:nth-child(5n+5) {
+    color: #FFEB3B;
+}
+    .ad-SketchAngle-line {
+        stroke: currentColor;
+        stroke-width: 2px;
+        stroke-linecap: round;
+    }
+    .ad-SketchAngle-angle {
+        opacity: .2;
+        fill: currentColor;
+    }
+    .ad-SketchAngle-trigo {
+        stroke: color(var(--colorPalette-1) l(+5%));
+        stroke-width: 2px;
+        stroke-dasharray: 6, 8;
+    }
+    .ad-SketchAngle-dot {
+        fill: currentColor;
+        stroke: #fff;
+        stroke-width: 2px;
+        transition: stroke .2s,
+            stroke-width .2s;
+    }
+    .ad-SketchAngle-dot.is-dragging {
+        stroke: #fff;
+        stroke-width: 4px;
+    }
+
+.ad-Form {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+    .ad-Form-groups {
+        flex: 1;
+        overflow: auto;
+        padding: 1rem 2rem 0;
+    }
+    .ad-Form-actions {
+        padding: 2rem;
+    }
+
+.ad-FormGroup {
+    width: 100%;
+    padding: 1rem 0;
+    display: flex;
+    align-items: center;
+}
+.ad-FormGroup + .ad-FormGroup {
+    border-top: 1px solid var(--colorPalette-1);
+}
+    .ad-FormGroup-color {
+        width: 12px;
+        height: 12px;
+        border: 2px solid #fff;
+        border-radius: 50%;
+        background: currentColor;
+    }
+
+.ad-FormMath {
+    margin-left: .8rem;
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+    .ad-FormMath-frac {
+        width: 2.5rem;
+        display: flex;
+        flex-direction: column;
+    }
+        .ad-FormMath-n + .ad-FormMath-n {
+            margin-top: .25rem;
+            padding-top: .25rem;
+            border-top: 2px solid #fff;
+        }
+    
+    .ad-FormMath-formula {
+        flex: 1;
+        margin-left: .4rem;
+        cursor: default;
+        font-family: "Open Sans", sans-serif;
+        font-size: 1.2rem;
+        color: #fff;
+    }
+
+.ad-FormInput {
+    width: 100%;
+    padding: .25rem;
+    border: none;
+    border-radius: 4px;
+    background: var(--colorPalette-1);
+    transition: background .1s;
+    text-align: center;
+    font-family: "Open Sans", sans-serif;
+    font-size: .85rem;
+    color: #fff;
+}
+.ad-FormInput:focus {
+    outline: 0;
+    background: color(var(--colorPalette-1) l(+10%));
+}
