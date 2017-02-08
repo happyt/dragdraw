@@ -307,3 +307,7 @@ html, body {
     outline: 0;
     background: color(var(--colorPalette-1) l(+10%));
 }
+
+.white {
+    color: white;
+}

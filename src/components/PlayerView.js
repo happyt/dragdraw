@@ -32,7 +32,7 @@ export class PlayerView extends Component {
 
         return (
 
-            <div className="central">
+            <div className="central white">
                 Current player: {this.props.currentName}
                 <div>
                     <button onClick={this.moveHandler}>

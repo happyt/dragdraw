@@ -99,3 +99,7 @@ ul.tab li a:focus, .active {background-color: #c00;}
 .dash {
   background-color: #060d33;
 }
+
+.white {
+  color: white;
+}

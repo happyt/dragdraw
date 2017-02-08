@@ -176,7 +176,7 @@ export default class App extends Component {
           clickHandler={(e) => this.handleClick(e)} />
 
         <div className={this.state.activeTab === 1 ? "dash tabcontent" : "tabhidden"}>
-          <Panel >Game point</Panel>
+          <Panel className="white">Game point</Panel>
           <PlayerView currentName={this.state.currentPlayer}
             update={this.updateCurrentPlayer}
             players={this.state.players} />
