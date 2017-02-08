@@ -7,13 +7,15 @@
   },
   "dependencies": {
     "firebase": "^3.6.8",
+    "fraction.js": "^3.3.1",
     "hammer": "0.0.5",
     "react": "^15.4.1",
     "react-color": "^2.11.1",
     "react-dnd": "^2.1.4",
     "react-dnd-card": "^0.3.7",
     "react-dnd-html5-backend": "^2.1.2",
-    "react-dom": "^15.4.1"
+    "react-dom": "^15.4.1",
+    "recharts": "^0.20.6"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -11,7 +11,6 @@ Challenge and compare type game
 - display colour circle (or svg) and initial
 - display players
 
-- stats to that page with recharts.org
 
 - set colour by Set player
 - set scores, health, speed ...?
@@ -37,6 +36,10 @@ Challenge and compare type game
 
 ### ideas
 number editor, https://github.com/tleunen/react-number-editor/tree/master/src
+
+styles
+http://react.semantic-ui.com/introduction
+
 
 native
 https://github.com/lelandrichardson/react-native-pan-controller

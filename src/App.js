@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Tabs } from './components/Tabs'
 import { Panel } from './components/Panel'
 import { FormName } from './components/FormName'
+import { Statistics } from './components/Statistics'
 import List from './List'
 import { generateId } from './lib/helpers';
 
@@ -20,6 +21,7 @@ var tabList = [
   { 'id': 4, 'name': 'Stats' },
   { 'id': 5, 'name': 'Who' }
 ];
+
 
 export default class App extends Component {
   constructor(props) {
@@ -159,6 +161,11 @@ export default class App extends Component {
         </div>
         <div className={this.state.activeTab === 4 ? "tabcontent" : "tabhidden"}>
           <Panel >Statistics</Panel>
+          <div className="central">
+            Current player: {this.state.currentPlayer}
+            <Statistics />
+
+         </div>
         </div>
         <div className={this.state.activeTab === 5 ? "tabcontent" : "tabhidden"}>
           <Panel >
