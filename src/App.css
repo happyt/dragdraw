@@ -114,5 +114,29 @@ ul.tab li a:focus, .active {background-color: #3ab2db;}
 }
 
 .strategyblue {
-  color: #a8ddfd;
+    color: #a8ddfd;
+}
+
+.boxOuter {
+    box-sizing: border-box;
+    background: #000055;
+    border: 2px solid #fff;
+    border-radius: 16px;
+    width: 180px;
+    height: 180px;
+    margin: 10px;
+    padding: 10px;
+    float: left;
+}
+    
+.boxy {
+    box-sizing: border-box;
+    background: #d43b47;
+    border: 1px solid #ff0505;
+    border-radius: 16px;
+    width: 180px;
+    height: 180px;
+    margin: 10px;
+    padding: 10px;
+    float: left;
 }

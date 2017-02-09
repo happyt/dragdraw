@@ -2,6 +2,7 @@
 import React, { Component } from 'react'
 import Trigonometry from './trig'
 import { Panel } from './Panel'
+import { Dragger } from './Dragger'
 import { getPlayerInList } from '../lib/helpers'
 
 export class PlayerView extends Component {
@@ -37,6 +38,7 @@ export class PlayerView extends Component {
                     </button>
                         <div className="error">{this.state.replyMessage}</div>
                     </div>
+                    <Dragger />
                     <Trigonometry
                         circleRadius={60}
                         sketchSize={20 * 20} />

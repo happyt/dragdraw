@@ -17,6 +17,7 @@ export const getPlayerInList = (name, namelist) => {
     return null;
 }
 
+// converts from Firebase object format to an array
 export const objectToPlayers = (fbObject) => {
     const playerList = [];
     if (fbObject.players !== undefined) {        // is there a players list entry

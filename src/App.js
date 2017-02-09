@@ -6,6 +6,7 @@ import { PlanView } from './components/PlanView'
 import { PlayerView } from './components/PlayerView'
 import { PlayerWho } from './components/PlayerWho'
 import StrategyList from './components/StrategyList'
+import { Dragger } from './components/Dragger'
 import { objectToPlayers } from './lib/helpers'
 
 // import Container from './components/Container';  // was for drag
@@ -18,7 +19,8 @@ var tabList = [
   { 'id': 2, 'name': 'Custom' },
   { 'id': 3, 'name': 'Room' },
   { 'id': 4, 'name': 'Stats' },
-  { 'id': 5, 'name': 'Who' }
+  { 'id': 5, 'name': 'Who' },
+  { 'id': 6, 'name': 'Drag' }
 ];
 
 export default class App extends Component {
@@ -108,6 +110,10 @@ export default class App extends Component {
                       addPlayer={this.props.addPlayer}
                       updatePlayer={this.props.updatePlayer}
                       whois={this.whois} />
+        </div>
+
+        <div className={this.state.activeTab === 6 ? "tabcontent" : "tabhidden"}>
+            <Dragger />
         </div>
       </div>
     );
