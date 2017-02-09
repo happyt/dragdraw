@@ -54,8 +54,8 @@ class StrategyList extends Component {
  
     return (
       <div>
-        <h3>Strategy list</h3>
-        <p>Drag items into the desired order</p>
+        <h3 className="white">Strategy list</h3>
+        <p  className="white">Drag items into the desired order</p>
         {items.map((item, index) => (
           <DndCard
             key={item.id}
@@ -63,7 +63,10 @@ class StrategyList extends Component {
             source={item}
             createItem={createItem}
             moveCard={this.moveCard}
-            style={{ marginBottom: '.5em' }}
+            style={{ 
+              marginBottom: '.5em',
+              background: "#a8ddfd"
+             }}
           />
         ))}
       </div>

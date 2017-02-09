@@ -503,7 +503,7 @@ export default class Trigonometry extends Component {
     }
 }
 
-// Angles form
+// old Angles form
 
                     // <div className="ad-Trigonometry-form">
                     //     <Form

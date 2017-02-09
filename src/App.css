@@ -8,7 +8,7 @@
 }
 
 .App-header {
-  background-color: #222;
+  background-color: #060d33;
   height: 150px;
   padding: 10px;
   color: white;
@@ -39,7 +39,7 @@ ul.tab {
     padding: 0;
     overflow: hidden;
     border: 1px solid #ccc;
-    background-color: #f1f1f1;
+    background-color: #094a82;
 }
 
 /* Float the list items side by side */
@@ -48,7 +48,7 @@ ul.tab li {float: left;}
 /* Style the links inside the list items */
 ul.tab li a {
     display: inline-block;
-    color: black;
+    color: white;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -57,10 +57,10 @@ ul.tab li a {
 }
 
 /* Change background color of links on hover */
-ul.tab li a:hover {background-color: #ddd;}
+ul.tab li a:hover {background-color: #3b8ba6;}
 
 /* Create an active/current tablink class */
-ul.tab li a:focus, .active {background-color: #c00;}
+ul.tab li a:focus, .active {background-color: #3ab2db;}
 
 /* Style the tab content */
 .tabcontent {
@@ -102,4 +102,17 @@ ul.tab li a:focus, .active {background-color: #c00;}
 
 .white {
   color: white;
+}
+
+.panel {
+    font-family: "Open Sans", sans-serif;
+    font-weight: bold;
+    font-size: 1.05rem;
+    color: #fff;
+    background-color: #094a82;
+    padding: 0.25em;
+}
+
+.strategyblue {
+  color: #a8ddfd;
 }

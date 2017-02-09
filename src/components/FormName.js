@@ -8,7 +8,7 @@ export const FormName = (props) => (
     </form>)
 
     FormName.propTypes = {
-        addition: React.PropTypes.string.isRequired,
+        nameText: React.PropTypes.string.isRequired,
         handleInputChange: React.PropTypes.func.isRequired,
         handleSubmit: React.PropTypes.func.isRequired
     }

@@ -5,9 +5,6 @@ Challenge and compare type game
 ### next ###
 
 
-- blue screen background, white text
-
-- compare player name in CAPS
 - movement input, speed
 - player panel display - colour, position, speed, scores
 
@@ -15,7 +12,7 @@ Challenge and compare type game
 - display colour circle (or svg) and initial
 - display players
 
-- save current player to local storage, and reload on startup
+- remember te colour of players
 - set colour by Set player
 - set scores, health, speed ...?
 - set player in room

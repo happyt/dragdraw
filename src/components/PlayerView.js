@@ -1,48 +1,46 @@
 
 import React, { Component } from 'react'
 import Trigonometry from './trig'
+import { Panel } from './Panel'
+import { getPlayerInList } from '../lib/helpers'
 
 export class PlayerView extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            message: ""
+            replyMessage: ""
         }
-    }
-
-    getPlayerInList = (name) => {
-        for (var i = 0; i < this.props.players.length; i++)
-            if (this.props.players[i]["name"] === name)
-                return this.props.players[i];
-        return null;
     }
 
     moveHandler = (evt) => {
         evt.preventDefault();
-        let p = this.getPlayerInList(this.props.currentName)
+        let p = getPlayerInList(this.props.currentName, this.props.players)
         if (p) {
             p.posX = Math.random() * 100;
             p.posY = Math.random() * 100;
-            this.props.update()
+            this.props.updatePlayer(p.Id, p)
         }
     }
 
     render() {
 
         return (
+            <div>
+                <Panel>Player dashboard</Panel>
+                <div className="central white">
 
-            <div className="central white">
-                Current player: {this.props.currentName}
-                <div>
-                    <button onClick={this.moveHandler}>
-                        Move
+                    Current player: {this.props.currentName}
+                    <div>
+                        <button onClick={this.moveHandler}>
+                            Move
                     </button>
-                    <div className="error">{this.state.message}</div>
+                        <div className="error">{this.state.replyMessage}</div>
+                    </div>
+                    <Trigonometry
+                        circleRadius={60}
+                        sketchSize={20 * 20} />
                 </div>
-                <Trigonometry
-                    circleRadius={130}
-                    sketchSize={26 * 16} />
             </div>
         )
     }
