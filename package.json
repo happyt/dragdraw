@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "firebase": "^3.6.8",
+    "fraction": "^0.2.0",
     "fraction.js": "^3.3.1",
     "hammer": "0.0.5",
     "react": "^15.4.1",

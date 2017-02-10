@@ -31,6 +31,12 @@ class StrategyList extends Component {
       }, {
         id: 7,
         text: 'Senses'
+      }, {
+        id: 8,
+        text: 'Dexterity'
+      }, {
+        id: 9,
+        text: 'Empathy'
       }]
     };
   }
@@ -54,7 +60,6 @@ class StrategyList extends Component {
  
     return (
       <div>
-        <h3 className="white">Strategy list</h3>
         <p  className="white">Drag items into the desired order</p>
         {items.map((item, index) => (
           <DndCard

@@ -9,7 +9,6 @@ export class Tabs extends Component {
       <ul className="tab">
 
         {this.props.tabList.map((tab) => {
-
           let tabClass = "";
           if (this.props.activeTab === tab.id) tabClass += " active";
 

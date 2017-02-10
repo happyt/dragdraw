@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
  
 const style = {
-  color: 'gray',
+  color: 'black',
   border: '1px dashed gray',
   padding: '.5em 1em',
   cursor: 'move'

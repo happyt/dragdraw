@@ -16,11 +16,11 @@ import './App.css';
 
 var tabList = [
   { 'id': 1, 'name': 'Play' },
-  { 'id': 2, 'name': 'Custom' },
+  { 'id': 2, 'name': 'Talent' },
   { 'id': 3, 'name': 'Room' },
   { 'id': 4, 'name': 'Stats' },
   { 'id': 5, 'name': 'Who' },
-  { 'id': 6, 'name': 'Drag' }
+  { 'id': 6, 'name': 'Test' }
 ];
 
 export default class App extends Component {
@@ -71,7 +71,7 @@ export default class App extends Component {
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Strategy app<span className="version">  v{this.state.version}</span></h2>
+          <span className="App-title">Strategy app</span><span className="version">  v{this.state.version}</span>
         </div>
         <Tabs tabList={tabList} activeTab={this.state.activeTab}
           clickHandler={(e) => this.handleClick(e)} />
@@ -85,7 +85,7 @@ export default class App extends Component {
         </div>
 
         <div className={this.state.activeTab === 2 ? "dash tabcontent" : "tabhidden"}>
-          <Panel >Tactics</Panel>
+          <Panel >Strategy list</Panel>
           <StrategyList />
         </div>
 

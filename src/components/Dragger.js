@@ -47,7 +47,7 @@ export class Dragger extends Component {
     adjustYPos = (e) => {
       e.preventDefault();
       e.stopPropagation();
-      const {controlledPosition} = this.state;
+  //    const {controlledPosition} = this.state;
       const {x, y} = this.state.controlledPosition;
       this.setState({controlledPosition: {x, y: y - 10}});
     }
@@ -65,7 +65,7 @@ export class Dragger extends Component {
 
   render() {
     const dragHandlers = { onStart: this.onStart, onStop: this.onStop };
-    const {deltaPosition, controlledPosition} = this.state;
+ //   const {deltaPosition, controlledPosition} = this.state;
 
     return (
       <div className="central">

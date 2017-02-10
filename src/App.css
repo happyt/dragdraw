@@ -1,16 +1,20 @@
 .App {
-  text-align: center;
+  text-align: left;
 }
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height: 70px;
+  height: 50px;
+}
+
+.App-titke {
+  font-size: x-large;
 }
 
 .App-header {
   background-color: #060d33;
-  height: 150px;
-  padding: 10px;
+  height: 60px;
+  padding: 4px;
   color: white;
 }
 
@@ -50,7 +54,7 @@ ul.tab li a {
     display: inline-block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 10px 10px;
     text-decoration: none;
     transition: 0.3s;
     font-size: 17px;
@@ -105,6 +109,7 @@ ul.tab li a:focus, .active {background-color: #3ab2db;}
 }
 
 .panel {
+    text-align: center;
     font-family: "Open Sans", sans-serif;
     font-weight: bold;
     font-size: 1.05rem;
@@ -119,7 +124,7 @@ ul.tab li a:focus, .active {background-color: #3ab2db;}
 
 .boxOuter {
     box-sizing: border-box;
-    background: #000055;
+    background-color: #000044;
     border: 2px solid #fff;
     border-radius: 16px;
     width: 180px;
@@ -132,7 +137,7 @@ ul.tab li a:focus, .active {background-color: #3ab2db;}
 .boxy {
     box-sizing: border-box;
     background: #d43b47;
-    border: 1px solid #ff0505;
+    border: 2px solid #ffffff;
     border-radius: 16px;
     width: 180px;
     height: 180px;

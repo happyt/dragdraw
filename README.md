@@ -4,64 +4,28 @@ Challenge and compare type game
 
 ### next ###
 
+- no scroll on ios
+- find positions, scores
+- update positions, speed
 
-- movement input, speed
-- player panel display - colour, position, speed, scores
-
-- position map screen
-- display colour circle (or svg) and initial
-- display players
-
-- remember te colour of players
-- set colour by Set player
+- set toggle value
 - set scores, health, speed ...?
 - set player in room
-- use p.id not name
+- reset, delete user
 
-- compare player strategies - score each time, add to stats?
-- if ever level - find final tally and edge that way
-- show edge on the bars
+Need
+    Group view screen
+    Dungeon master screen
 
 
-
-## player structure ideas ##
-- id
-- PIN no (later, for security)
-- name
-- status
-- health value
-- ammo value
-- colour
-- position X, Y
-- speed vector, X, Y
-- toggleA
-- toggleB
-- objects in hand
-
-- each player has different line style?
-- colour line for speed of ball
-
-### ideas
-number editor, https://github.com/tleunen/react-number-editor/tree/master/src
-
-styles
-http://react.semantic-ui.com/introduction
-
-charts
-http://recharts.org/#/en-US
-
-native
-https://github.com/lelandrichardson/react-native-pan-controller
+Later
+    Add rooms to group people
+    Add PIN no to enter, set by the creator
+    Stats
+    svg joystick
+    auth to Firebase
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+And uses Firebase to hold the state
 
-references
-Fraction - https://github.com/infusion/Fraction.js
-http://www.xarg.org/2014/03/rational-numbers-in-javascript/  
 
-tried react-dnd, so still in there, but it interfered with other drag components
-https://react-dnd.github.io/react-dnd/docs-overview.html
-
-used trigonometry helper,
-http://codepen.io/anthonydugois/pen/JYoqqm
-looked at https://react.rocks/example/TR-808 - interesting but unused
