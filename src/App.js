@@ -16,7 +16,7 @@ import './App.css';
 
 var tabList = [
   { 'id': 1, 'name': 'Play' },
-  { 'id': 2, 'name': 'Talent' },
+  { 'id': 2, 'name': 'Skill' },
   { 'id': 3, 'name': 'Room' },
   { 'id': 4, 'name': 'Stats' },
   { 'id': 5, 'name': 'Who' },
