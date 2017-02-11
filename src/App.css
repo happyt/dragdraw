@@ -169,4 +169,6 @@ ul.tab li a:focus, .active {background-color: #3ab2db;}
     margin: 10px;
     padding: 10px;
     cursor: move;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none; /* Disable selection/copy in UIWebView */
 }

@@ -167,36 +167,36 @@ export default class App extends Component {
             // Lock horizontal to have a vertical list
             lock='horizontal'
             // The milliseconds to hold an item for before dragging begins
-            holdTime='300'
+            holdTime='100'
             // The list to display
             list={ [{
-        id: 1,
-        text: 'Strength'
-      }, {
-        id: 2,
-        text: 'Cunning'
-      }, {
-        id: 3,
-        text: 'Agility'
-      }, {
-        id: 4,
-        text: 'Speed'
-      }, {
-        id: 5,
-        text: 'Weight'
-      }, {
-        id: 6,
-        text: 'Wisdom'
-      }, {
-        id: 7,
-        text: 'Senses'
-      }, {
-        id: 8,
-        text: 'Dexterity'
-      }, {
-        id: 9,
-        text: 'Empathy'
-      }]}
+                      id: 1,
+                      text: 'Strength'
+                    }, {
+                      id: 2,
+                      text: 'Cunning'
+                    }, {
+                      id: 3,
+                      text: 'Agility'
+                    }, {
+                      id: 4,
+                      text: 'Speed'
+                    }, {
+                      id: 5,
+                      text: 'Weight'
+                    }, {
+                      id: 6,
+                      text: 'Wisdom'
+                    }, {
+                      id: 7,
+                      text: 'Senses'
+                    }, {
+                      id: 8,
+                      text: 'Dexterity'
+                    }, {
+                      id: 9,
+                      text: 'Empathy'
+                    }]}
             
             // A template to display for each list item
             template={ListItem}

@@ -4,11 +4,13 @@ Challenge and compare type game
 
 ### next ###
 
-- click drag list ios
 - find positions, scores
 - update positions, speed
 
 - set toggle value
+- trig page, w touch
+- test for touch, only show one tab
+
 - set scores, health, speed ...?
 - set player in room
 - reset, delete user
