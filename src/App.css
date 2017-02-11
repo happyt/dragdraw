@@ -4,7 +4,6 @@
     overflow: hidden;
     width: 100%;
     position: fixed;
-
 }
 
 .App-logo {
@@ -149,4 +148,25 @@ ul.tab li a:focus, .active {background-color: #3ab2db;}
     margin: 10px;
     padding: 10px;
     float: left;
+}
+
+.draggable-list {
+  background-color: pink;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 100%;
+  height: 100%;
+}
+    
+.list-item {
+    box-sizing: border-box;
+    border: 2px solid #ffffff;
+    color: black;
+    background-color: #8dd2e4;
+    border: 1px dashed gray;
+    height: 40px;
+    margin: 10px;
+    padding: 10px;
+    cursor: move;
 }

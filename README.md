@@ -4,7 +4,7 @@ Challenge and compare type game
 
 ### next ###
 
-- no scroll on ios
+- click drag list ios
 - find positions, scores
 - update positions, speed
 
@@ -12,6 +12,10 @@ Challenge and compare type game
 - set scores, health, speed ...?
 - set player in room
 - reset, delete user
+
+- duplicate name bug
+- desktop icon
+- full frame app
 
 Need
     Group view screen
