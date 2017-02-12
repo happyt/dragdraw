@@ -45,6 +45,7 @@ export class Joystick extends Component {
           dy: 0,
         }
     });
+    this.props.monitor(this.state.deltaPosition)
   }
 
 // // For controlled component
