@@ -8,28 +8,46 @@ var config = {
 };
 firebase.initializeApp(config);
 
+const SIZE = 800
+const DOT = 25
+
 var pointsData = firebase.database().ref().child('players');
 
+var players = [];
 
-var points = [];
+// converts from Firebase object format to an array
+const objectToPlayers = (fbObject) => {
+    const playerList = [];       // is there a players list entry
+      Object.keys(fbObject).forEach(key => {
+        fbObject.id = key
+        playerList.push(fbObject[key]);
+      })
+    return playerList;
+}
 
+const playerColour = (player) => {
+    if (!player.colour) return color(99,99,99)
+    return color(player.colour.r, player.colour.g, player.colour.b)
+}
 
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(SIZE, SIZE);
   background(60);
   fill(255);
-  pointsData.on("child_added", function (point) {
-     console.log(point.val)
-     points.push(point.val())
-  });
+//   pointsData.on("child_added", function (point) {
+//      console.log(point.val)
+//      points.push(point.val())
+//   });
 
-      for (var i = 0; i < points.length; i++) {
-        var point = points[i];
-        console.log(point.x, point.y)
-        ellipse(point.x, point.y, 5, 5)
-    }
+    pointsData.on("value", snapshot => {
+        const playersObject = snapshot.val()
+        players = objectToPlayers(playersObject);   
+    });
 }
 
 function draw() {
-
+    for (var i = 0; i < players.length; i++) {
+        fill(playerColour(players[i]))
+        ellipse(players[i].posX + 20, SIZE - 20 - players[i].posY, DOT, DOT)
+    } 
 }
