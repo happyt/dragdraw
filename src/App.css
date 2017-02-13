@@ -70,6 +70,10 @@ ul.tab li a:hover {background-color: #3b8ba6;}
 /* Create an active/current tablink class */
 ul.tab li a:focus, .active {background-color: #3ab2db;}
 
+input, button {
+    font-size: 1.5em;
+}
+
 /* Style the tab content */
 .tabcontent {
     display: block;
@@ -171,4 +175,5 @@ ul.tab li a:focus, .active {background-color: #3ab2db;}
     cursor: move;
     -webkit-touch-callout: none;
     -webkit-user-select: none; /* Disable selection/copy in UIWebView */
+    user-select: none;
 }

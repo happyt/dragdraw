@@ -123,13 +123,15 @@ export class PlayerView extends Component {
                     <div>
                         <button onClick={this.moveHandler}>
                             ??
-                    </button>
+                        </button>
                         <div className="error">{this.state.replyMessage}</div>
                     </div>
                     <Joystick  monitor={this.joyPosition} />
-                    <Trigonometry
-                        circleRadius={60}
-                        sketchSize={20 * 20} />
+                    <div className="central">
+                        <Trigonometry
+                            circleRadius={60}
+                            sketchSize={300} />
+                    </div>
                 </div>
             </div>
         )

@@ -107,12 +107,6 @@ export class PlayerWho extends Component {
             <div>
                 <Panel>Player choices</Panel>
                 <div className="central white">
-                    <div>{this.props.currentPlayer}</div>
-                    <ul>
-                        {this.props.players.map(mm =>
-                            <div key={mm.id}> {mm.name} </div>
-                        )}
-                    </ul>
                     <FormName handleInputChange={this.handleInputChange}
                         nameText={this.state.nameText}
                         handleSubmit={submitHandler} />
@@ -131,3 +125,10 @@ export class PlayerWho extends Component {
         )
     }
 }
+
+                    /*<div>{this.props.currentPlayer}</div>
+                    <ul>
+                        {this.props.players.map(mm =>
+                            <div key={mm.id}> {mm.name} </div>
+                        )}
+                    </ul>*/

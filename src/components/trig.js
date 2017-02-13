@@ -472,7 +472,7 @@ export default class Trigonometry extends Component {
     
     render() {       
         return (
-            <div>
+            <div className="central">
                 <div className="ad-App-head">
                     <h1 className="ad-App-title">
                         Angular battle

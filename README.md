@@ -7,6 +7,7 @@ has a react.js client web app,
 p5.js Processing map overview page
 
 ### Next ###
+- set position when chage player
 - update positions, speed - reduce to 1 dec place
 - find positions, scores
 - set toggle value

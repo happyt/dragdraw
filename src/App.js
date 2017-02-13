@@ -41,7 +41,7 @@ export default class App extends Component {
     //    console.log(JSON.stringify(this.props));
     const playerList = objectToPlayers(props);
     this.state = {
-      version: 1.1,
+      version: 1.2,
       activeTab: 1,
       nameText: "",
       players: playerList,
