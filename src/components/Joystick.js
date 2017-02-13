@@ -48,36 +48,6 @@ export class Joystick extends Component {
     this.props.monitor(this.state.deltaPosition)
   }
 
-// // For controlled component
-//     adjustXPos = (event) => {
-//       console.log('CEvent: ', event);
-//       event.preventDefault();
-//       event.stopPropagation();
-//       const {x, y} = this.state.controlledPosition;
-//       this.setState({controlledPosition: {x: x - 10, y}});
-//     }
-
-//     adjustYPos = (event) => {
-//       console.log('CEvent: ', event);
-//       event.preventDefault();
-//       event.stopPropagation();
-//   //    const {controlledPosition} = this.state;
-//       const {x, y} = this.state.controlledPosition;
-//       this.setState({controlledPosition: {x, y: y - 10}});
-//     }
-
-//     onControlledDrag = (event, position) => {
-//       console.log('CEvent: ', event);
-//       const {x, y} = position;
-//       this.setState({controlledPosition: {x, y}});
-//     }
-
-//     onControlledDragStop = (event, position) => {
-//       console.log('CEvent: ', event);
-//       const {x, y} = position;
-//       this.setState({controlledPosition: {x, y}});
-//     }
-
 
   render() {
     const dragHandlers = { onStart: this.onStart, onDrag: this.onDrag, onStop: this.onStop };
@@ -94,5 +64,3 @@ export class Joystick extends Component {
     );
   }
 }
-
-// {...dragHandlers}

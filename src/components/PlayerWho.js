@@ -52,6 +52,7 @@ export class PlayerWho extends Component {
                 toggleA: false,
                 ammo: 10
             })
+            currentlyWho = this.state.nameText
             this.setState({
                 currentPlayer: this.state.nameText
             });

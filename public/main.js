@@ -46,6 +46,7 @@ function setup() {
 }
 
 function draw() {
+    background(60);
     for (var i = 0; i < players.length; i++) {
         fill(playerColour(players[i]))
         ellipse(players[i].posX + 20, SIZE - 20 - players[i].posY, DOT, DOT)

@@ -15,6 +15,7 @@ export class PlanView extends Component {
     let crowd = []
     for (var i = 0; i < this.props.squad.length; i++) {
         let p = {}
+ //       console.log(JSON.stringify(this.props.squad[i]))
         p['x'] = this.props.squad[i].posX
         p['y'] = this.props.squad[i].posY
         p['z'] = 400
@@ -23,10 +24,10 @@ export class PlanView extends Component {
 
     return (
         <div>
-            <ScatterChart width={400} height={400} margin={{top: 20, right: 20, bottom: 20, left: 20}}>
+            <ScatterChart width={600} height={600} margin={{top: 20, right: 20, bottom: 20, left: 20}}>
                 <XAxis dataKey={'x'} name='stature' unit='cm'/>
                 <YAxis dataKey={'y'} name='weight' unit='kg'/>
-                <ZAxis dataKey={'z'} range={[60, 400]} name='score' unit='km'/>
+                <ZAxis dataKey={'z'} range={[50, 600]} name='score' unit='km'/>
                 <CartesianGrid />
                 <Tooltip cursor={{strokeDasharray: '3 3'}}/>
                 <Legend/>
