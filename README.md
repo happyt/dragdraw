@@ -6,6 +6,8 @@ It uses Firebase to store the players,
 has a react.js client web app, 
 p5.js Processing map overview page
 
+Just playing around with various touch and drag libraries for React
+
 ### Next ###
 - set position when change player
 - set max speed - reduce to 1 dec place
